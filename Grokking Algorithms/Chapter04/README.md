@@ -1,5 +1,7 @@
 
-# Algoritmo Euclidiano
+# Capitulo 04 - Quicksort
+
+## Algoritmo Euclidiano
 
 > Técnica para encontrar de forma rápida o MDC de dois inteiros. 
 >
