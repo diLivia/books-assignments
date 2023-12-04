@@ -2,26 +2,36 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class HashMaps {
-    public static void main(String[] args) {
-        Map<String, Integer> phoneListMap = new HashMap<>();
-        
-        phoneListMap.put("Jenny", 8675309);
-        phoneListMap.put("Emergency", 911);
 
-        System.out.println(printPhoneNumber(phoneListMap, "Jenny"));
-        System.out.println(printPhoneNumber(phoneListMap, "Emergency"));
-        System.out.println(printPhoneNumber(phoneListMap, "Caio"));
+    private Map<String, Integer> phoneListMap = new HashMap<>();
+
+    private void printPhoneNumber(String name) {
+        if (phoneListMap.containsKey(name)) {
+            int phoneNumber = phoneListMap.get(name);
+            System.out.println("Name: " + name + ", Phone Number: " + phoneNumber); 
+        } else {
+            System.out.println("Number of '" + name + "' not found in phone list.");
+        }
     }
 
-    private static String printPhoneNumber(Map<String, Integer> hashMap, String name) {
-        // Verificar se a chave está presente na HashMap
-        if (hashMap.containsKey(name)) {
-            // Recuperar o valor associado à chave e imprimir
-            int phoneNumber = hashMap.get(name);
-            return "Name: " + name + ", Phone Number: " + phoneNumber;
+    private void addContact(String name, Integer phoneNumber){
+        if (phoneListMap.containsKey(name)) {
+            System.out.println(name + " is already in the list."); 
         } else {
-            return "Number of '" + name + "' not found in phone list.";
+            phoneListMap.put(name, phoneNumber);
+            System.out.println(name + " added to the list."); 
         }
+    }
+
+    public static void main(String[] args) {
+        HashMaps myPhoneList = new HashMaps();
+        
+        myPhoneList.addContact("Jenny", 8675309);
+        myPhoneList.addContact("Emergency", 911);
+
+        myPhoneList.printPhoneNumber("Jenny");
+        myPhoneList.printPhoneNumber("Emergency");
+        myPhoneList.printPhoneNumber("Caio");
     }
     
 }
