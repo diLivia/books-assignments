@@ -5,12 +5,10 @@ public class BreadthFirstSearch {
 
     private static boolean search(String name) {
         Queue<String> searchQueue = new ArrayDeque<>(graph.get(name));
-        // This list is how you keep track of which people you've searched before.
         List<String> searched = new ArrayList<>();
 
         while (!searchQueue.isEmpty()) {
             String person = searchQueue.poll();
-            // Only search this person if you haven't already searched them
             if (!searched.contains(person)) {
                 if (person_is_seller(person)) {
                     System.out.println(person + " is a mango seller!");
